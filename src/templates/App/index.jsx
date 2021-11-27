@@ -1,10 +1,11 @@
+import { Heading } from '../../components/Heading';
 import * as Styled from './styles';
 
 export function Home() {
   return (
     <div className="App">
       <Styled.Wrapper>
-        <h1>Hello world</h1>
+        <Heading>Hello world</Heading>
       </Styled.Wrapper>
     </div>
   );
