@@ -5,26 +5,28 @@ import { MenuLink } from '.';
 
 describe('<MenuLink />', () => {
   it('should render a link', () => {
-    renderTheme(<MenuLink link={'http://localhost'}>Children</MenuLink>);
-    expect(screen.getByRole('link')).toHaveAttribute('target', '_self');
+    const { container } = renderTheme(
+      <MenuLink link={'http://localhost'}>Children</MenuLink>,
+    );
+    expect(container.firstChild).toHaveAttribute('target', '_self');
   });
 
   it('should open a link in a new tab', () => {
-    renderTheme(
+    const { container } = renderTheme(
       <MenuLink link={'http://localhost'} newTab={true}>
         Children
       </MenuLink>,
     );
-    expect(screen.getByRole('link')).toHaveAttribute('target', '_blank');
+    expect(container.firstChild).toHaveAttribute('target', '_blank');
   });
 
   it('should match snapshot', () => {
-    renderTheme(
+    const { container } = renderTheme(
       <MenuLink link={'http://localhost'} newTab={true}>
         Children
       </MenuLink>,
     );
-    expect(screen.getByRole('link')).toMatchInlineSnapshot(`
+    expect(container.firstChild).toMatchInlineSnapshot(`
       .c0 {
         display: block;
         -webkit-text-decoration: none;
@@ -38,7 +40,7 @@ describe('<MenuLink />', () => {
       .c0::after {
         content: '';
         position: absolute;
-        bottom: 0;
+        bottom: 0.76rem;
         left: 50%;
         width: 0;
         height: 0.2rem;
