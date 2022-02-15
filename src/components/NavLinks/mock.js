@@ -24,4 +24,39 @@ export default [
     link: '#target5',
     newTab: false,
   },
+  {
+    children: 'Link 6',
+    link: '#target6',
+    newTab: false,
+  },
+  {
+    children: 'Link 7',
+    link: '#target7',
+    newTab: false,
+  },
+  {
+    children: 'Link 8',
+    link: '#target8',
+    newTab: false,
+  },
+  {
+    children: 'Link 9',
+    link: '#target9',
+    newTab: false,
+  },
+  {
+    children: 'Link 10',
+    link: '#target10',
+    newTab: false,
+  },
+  {
+    children: 'Link 11',
+    link: '#target11',
+    newTab: false,
+  },
+  {
+    children: 'Link 12',
+    link: '#target12',
+    newTab: false,
+  },
 ];
