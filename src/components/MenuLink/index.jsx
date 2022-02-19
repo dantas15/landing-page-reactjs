@@ -1,5 +1,4 @@
 import P from 'prop-types';
-import { useState } from 'react';
 import * as Styled from './styles';
 
 export const MenuLink = ({ children, link, newTab = false }) => {

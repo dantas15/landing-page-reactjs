@@ -44,7 +44,7 @@ describe('<MenuLink />', () => {
         left: 50%;
         width: 0;
         height: 0.2rem;
-        background: #dc143c;
+        background: #DC143C;
         -webkit-transition: all 300ms ease-in-out;
         transition: all 300ms ease-in-out;
       }
