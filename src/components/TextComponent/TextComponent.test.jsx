@@ -17,11 +17,11 @@ describe('<TextComponent />', () => {
         font-size: 2.4rem;
       }
 
-      <p
+      <footer
         class="c0"
       >
         Children
-      </p>
+      </footer>
     `);
   });
 });
