@@ -6,7 +6,7 @@ import { Heading } from 'components/Heading';
 import { SectionBackground } from 'components/SectionBackground';
 import { TextComponent } from 'components/TextComponent';
 
-export const GridText = ({ title, description, grid, background = false }) => {
+export const GridImage = ({ title, description, grid, background = false }) => {
   return (
     <SectionBackground background={background}>
       <Styled.Container>
@@ -15,28 +15,27 @@ export const GridText = ({ title, description, grid, background = false }) => {
         </Heading>
         <TextComponent>{description}</TextComponent>
         <Styled.Grid>
-          {grid.map((element, index) => (
-            <Styled.GridElement key={index}>
-              <Heading size="medium" colorDark={!background} as="h3">
-                {element.title}
-              </Heading>
-              <TextComponent>{element.description}</TextComponent>
-            </Styled.GridElement>
-          ))}
+          {grid.map((element, index) => {
+            return (
+              <Styled.GridElement key={index}>
+                <Styled.Image src={element.srcImage} alt={element.altText} />
+              </Styled.GridElement>
+            );
+          })}
         </Styled.Grid>
       </Styled.Container>
     </SectionBackground>
   );
 };
 
-GridText.propTypes = {
+GridImage.propTypes = {
   background: P.bool,
   title: P.string.isRequired,
   description: P.string.isRequired,
   grid: P.arrayOf(
     P.shape({
-      title: P.string.isRequired,
-      description: P.string.isRequired,
+      altText: P.string.isRequired,
+      srcImage: P.string.isRequired,
     }),
   ).isRequired,
 };
