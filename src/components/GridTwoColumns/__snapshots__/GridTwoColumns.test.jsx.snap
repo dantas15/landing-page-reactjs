@@ -21,12 +21,6 @@ exports[`<GridTwoColumns /> should render two column grid 1`] = `
   margin-bottom: 4.0rem;
 }
 
-.c1 {
-  max-width: 120rem;
-  margin: 0 auto;
-  padding: 3.2rem;
-}
-
 .c0 {
   background: #ffffff;
   color: #0A1128;
@@ -39,6 +33,12 @@ exports[`<GridTwoColumns /> should render two column grid 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+
+.c1 {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 3.2rem;
 }
 
 .c6 {

@@ -4,9 +4,10 @@ import { Menu as MenuIcon } from '@styled-icons/material-outlined';
 import { Close as CloseIcon } from '@styled-icons/material-outlined';
 
 import * as Styled from './styles';
-import { SectionContainer } from '../SectionContainer';
-import { LogoLink } from '../LogoLink';
-import { NavLinks } from '../NavLinks';
+
+import { SectionContainer } from 'components/SectionContainer';
+import { LogoLink } from 'components/LogoLink';
+import { NavLinks } from 'components/NavLinks';
 
 export const Menu = ({ links = [], logoData }) => {
   const [visible, setVisible] = useState(false);

@@ -1,9 +1,9 @@
 import P from 'prop-types';
 import * as Styled from './styles';
 
-import { SectionBackground } from '../SectionBackground';
-import { TextComponent } from '../TextComponent';
-import { Heading } from '../Heading';
+import { Heading } from 'components/Heading';
+import { SectionBackground } from 'components/SectionBackground';
+import { TextComponent } from 'components/TextComponent';
 
 export const GridTwoColumns = ({ title, text, background, srcImg }) => {
   return (

@@ -1,8 +1,10 @@
 import { screen } from '@testing-library/dom';
 import { ThemeProvider } from 'styled-components';
+
+import { renderTheme } from 'styles/render-theme';
+import { theme } from 'styles/theme';
+
 import { Heading } from '.';
-import { renderTheme } from '../../styles/render-theme';
-import { theme } from '../../styles/theme';
 
 describe('<Heading />', () => {
   it('should render with default values', () => {
