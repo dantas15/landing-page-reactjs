@@ -4,7 +4,7 @@ export default {
   title: 'Footer',
   component: Footer,
   args: {
-    html: `<p><a href="http://github.com/gusgalote/landing-page-reactjs">Feito com ❤️ por Gustavo Galote</a></p>`,
+    footerHtml: `<p><a href="http://github.com/gusgalote/landing-page-reactjs">Feito com ❤️ por Gustavo Galote</a></p>`,
   },
   argTypes: {
     children: { type: 'string' },
