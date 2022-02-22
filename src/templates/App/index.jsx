@@ -1,12 +1,8 @@
-import { Heading } from '../../components/Heading';
 import * as Styled from './styles';
 
+import { Base } from 'templates/Base';
+import { mockBase } from 'templates/Base/stories';
+
 export function Home() {
-  return (
-    <div className="App">
-      <Styled.Wrapper>
-        <Heading>Hello world</Heading>
-      </Styled.Wrapper>
-    </div>
-  );
+  return <Base {...mockBase} />;
 }
