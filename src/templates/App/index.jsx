@@ -1,7 +1,6 @@
-import * as Styled from './styles';
-
 import { Base } from 'templates/Base';
-import { mockBase } from 'templates/Base/stories';
+
+import { mockBase } from 'templates/Base/mock';
 
 export function Home() {
   return <Base {...mockBase} />;
