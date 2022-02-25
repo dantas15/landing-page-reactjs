@@ -1,4 +1,5 @@
 import {
+  mapImageGrid,
   mapSectionContent,
   mapSections,
   mapSectionTwoColumns,
@@ -108,5 +109,54 @@ describe('map-sections', () => {
     expect(data.grid[0].description).toBe(
       'Mussum Ipsum, cacilds vidis litro abertis.',
     );
+  });
+
+  it('should map grid image even if there is no data', () => {
+    const data = mapImageGrid();
+
+    expect(data.component).toBe('section.section-grid-image');
+    expect(data.title).toBe('');
+    expect(data.description).toBe('');
+    expect(data.background).toBe(false);
+    expect(data.sectionId).toBe('');
+    expect(data.grid).toEqual([]);
+  });
+
+  it('should map grid image', () => {
+    const data = mapImageGrid({
+      __component: 'section.section-grid-image',
+      title: 'gallery',
+      description: 'Aesthetic images',
+      text_grid: [],
+      image_grid: [
+        {
+          image: {
+            name: 'mussum.png',
+            alternativeText: 'Mussum',
+            caption: 'Mussum',
+            hash: 'mussum_f352025b80',
+            ext: '.png',
+            mime: 'image/png',
+            size: 441.8,
+            width: 1080,
+            height: 1440,
+            url: 'a.svg',
+          },
+        },
+      ],
+      metadata: {
+        background: false,
+        name: 'gallery',
+        section_id: 'gallery',
+      },
+    });
+
+    expect(data.component).toBe('section.section-grid-image');
+    expect(data.title).toBe('gallery');
+    expect(data.description).toBe('Aesthetic images');
+    expect(data.background).toBe(false);
+    expect(data.sectionId).toBe('gallery');
+    expect(data.grid[0].altText).toBe('Mussum');
+    expect(data.grid[0].srcImg).toBe('a.svg');
   });
 });
