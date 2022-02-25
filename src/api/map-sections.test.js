@@ -6,10 +6,44 @@ import {
   mapTextGrid,
 } from './map-sections';
 
+import pagesFakeData from './dados.json';
+
 describe('map-sections', () => {
   it('should render predefined section if there is no data', () => {
     const data = mapSections();
     expect(data).toEqual([{}]);
+  });
+
+  it('should render sections with correct data', () => {
+    const data = mapSections(pagesFakeData[0].sections);
+    expect(data[0].component).toBe('section.section-two-columns');
+  });
+
+  it('should test section if section-grid is neither text or image', () => {
+    const sectionGridInvalidValues = mapSections([
+      { __component: 'section.section-grid' },
+    ]);
+    expect(sectionGridInvalidValues).toEqual([
+      { __component: 'section.section-grid' },
+    ]);
+
+    const noComponent = mapSections([{}]);
+    expect(noComponent).toEqual([{}]);
+  });
+
+  it('should test section-grid without text_grid nor image_grid', () => {
+    const sectionGridInvalidValues = mapSections([
+      {
+        __component: 'section.section-grid',
+        image_grid: [{}],
+      },
+      {
+        __component: 'section.section-grid',
+        text_grid: [{}],
+      },
+    ]);
+
+    expect(sectionGridInvalidValues.length).toBe(2);
   });
 
   it('should map section two columns even if there is no data', () => {
@@ -25,7 +59,6 @@ describe('map-sections', () => {
   it('should map section two columns', () => {
     const data = mapSectionTwoColumns({
       __component: 'section.section-two-columns',
-      _id: '619a43a4a3f34f11b910a893',
       title: 'title',
       description: 'abc',
       metadata: {
@@ -131,15 +164,7 @@ describe('map-sections', () => {
       image_grid: [
         {
           image: {
-            name: 'mussum.png',
             alternativeText: 'Mussum',
-            caption: 'Mussum',
-            hash: 'mussum_f352025b80',
-            ext: '.png',
-            mime: 'image/png',
-            size: 441.8,
-            width: 1080,
-            height: 1440,
             url: 'a.svg',
           },
         },
