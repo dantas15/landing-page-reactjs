@@ -2,6 +2,7 @@ import {
   mapSectionContent,
   mapSections,
   mapSectionTwoColumns,
+  mapTextGrid,
 } from './map-sections';
 
 describe('map-sections', () => {
@@ -69,5 +70,43 @@ describe('map-sections', () => {
     expect(data.html).toBe('<p>test html</p>');
     expect(data.background).toBe(false);
     expect(data.sectionId).toBe('intro');
+  });
+
+  it('should map grid text even if there is no data', () => {
+    const data = mapTextGrid();
+
+    expect(data.component).toBe('section.section-grid-text');
+    expect(data.title).toBe('');
+    expect(data.description).toBe('');
+    expect(data.background).toBe(false);
+    expect(data.sectionId).toBe('');
+    expect(data.grid).toEqual([]);
+  });
+
+  it('should map grid text', () => {
+    const data = mapTextGrid({
+      title: 'MUSSUM IPSUM',
+      description: 'O melhor lorem ipsum do mundis',
+      text_grid: [
+        {
+          title: 'Mussum ipsum',
+          description: 'Mussum Ipsum, cacilds vidis litro abertis.',
+        },
+      ],
+      metadata: {
+        background: true,
+        section_id: 'grid-one',
+      },
+    });
+
+    expect(data.component).toBe('section.section-grid-text');
+    expect(data.title).toBe('MUSSUM IPSUM');
+    expect(data.description).toBe('O melhor lorem ipsum do mundis');
+    expect(data.background).toBe(true);
+    expect(data.sectionId).toBe('grid-one');
+    expect(data.grid[0].title).toBe('Mussum ipsum');
+    expect(data.grid[0].description).toBe(
+      'Mussum Ipsum, cacilds vidis litro abertis.',
+    );
   });
 });
