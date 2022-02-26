@@ -18,7 +18,7 @@ export const GridImage = ({ title, description, grid, background = false }) => {
           {grid.map((element, index) => {
             return (
               <Styled.GridElement key={index}>
-                <Styled.Image src={element.srcImage} alt={element.altText} />
+                <Styled.Image src={element.srcImg} alt={element.altText} />
               </Styled.GridElement>
             );
           })}
@@ -35,7 +35,7 @@ GridImage.propTypes = {
   grid: P.arrayOf(
     P.shape({
       altText: P.string.isRequired,
-      srcImage: P.string.isRequired,
+      srcImg: P.string.isRequired,
     }),
   ).isRequired,
 };

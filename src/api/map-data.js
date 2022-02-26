@@ -15,7 +15,7 @@ export const mapData = (pagesData = [{}]) => {
       footerHtml,
       slug,
       title,
-      sections: mapSections(),
+      sections: mapSections(sections),
       menu: mapMenu(menu),
     };
   });
