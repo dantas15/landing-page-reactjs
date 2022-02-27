@@ -1,5 +1,5 @@
 export default {
-  url: 'http://localhost:1337/pages?slug=',
+  url: 'https://landing-page-strapi.herokuapp.com/pages?slug=',
   siteName: 'gusgalote',
   defaultSlug: 'landing-page',
 };
