@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { mapData } from 'api/map-data';
+
 import { Base } from 'templates/Base';
 import { mockBase } from 'templates/Base/mock';
 import { PageNotFound } from 'templates/PageNotFound';
 import { Loading } from 'templates/Loading';
+
 import { GridTwoColumns } from 'components/GridTwoColumns';
 import { GridContent } from 'components/GridContent';
 import { GridText } from 'components/GridText';
 import { GridImage } from 'components/GridImage';
-import { useLocation } from 'react-router-dom';
+
+import config from 'config/webConfig';
 
 export const Home = () => {
   const [data, setData] = useState([]);
@@ -16,11 +20,11 @@ export const Home = () => {
 
   useEffect(() => {
     const pathname = location.pathname.replace(/[^a-z0-9-_]/gi, '');
-    const slug = pathname ? pathname : 'landing-page';
+    const slug = pathname ? pathname : config.defaultSlug;
 
     const load = async () => {
       try {
-        const data = await fetch(`http://localhost:1337/pages?slug=${slug}`);
+        const data = await fetch(`${config.url}${slug}`);
         const json = await data.json();
         const pageData = mapData(json);
         setData(pageData[0]);
@@ -31,6 +35,20 @@ export const Home = () => {
 
     load();
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (!data) {
+      document.title = `Page not found | ${config.siteName}`;
+    }
+
+    if (data && !data.slug) {
+      document.title = `Loading... | ${config.siteName}`;
+    }
+
+    if (data && data.title) {
+      document.title = `${data.title} | ${config.siteName}`;
+    }
+  }, [data]);
 
   if (!data) {
     return <PageNotFound />;
